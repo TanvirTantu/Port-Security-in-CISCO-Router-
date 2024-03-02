@@ -1,0 +1,29 @@
+Method 1. Vilation Protect ( Hacker can hit but the admin gets no log) 
+
+Switch(config)#interface fastEthernet 0/2
+Switch(config-if)#switchport mode access 
+Switch(config-if)#switchport port-security 
+Switch(config-if)#switchport port-security maximum 1
+Switch(config-if)#switchport port-security mac-address 0009.7CBB.4025
+Switch(config-if)#switchport port-security violation protect 
+Switch(config-if)#exit 
+
+Method 2. Vilation Restrict ( Hacker can hit but the admin gets a log) 
+
+Switch(config)#interface fastEthernet 0/3
+Switch(config-if)#switchport mode access 
+Switch(config-if)#switchport port-security 
+Switch(config-if)#switchport port-security maximum 1
+Switch(config-if)#switchport port-security mac-address sticky
+Switch(config-if)#switchport port-security violation restrict
+Switch(config-if)#exit 
+
+Method 3. Vilation shutdown ( Hacker can hit and the system gets shut) 
+
+Switch(config)#interface fastEthernet 0/4
+Switch(config-if)#switchport mode access 
+Switch(config-if)#switchport port-security 
+Switch(config-if)#switchport port-security maximum 1
+Switch(config-if)#switchport port-security mac-address 0009.7CBB.4025
+Switch(config-if)#switchport port-security violation shutdown
+Switch(config-if)#exit 
